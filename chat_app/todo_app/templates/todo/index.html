@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <!-- Todoの新規登録用フォーム -->
+    <div>
+      <form action="/" method="post">
+        {% csrf_token %}
+        <input type="text" name="memo" />
+        <input type="submit" value="送信" />
+      </form>
+    </div>
+    <!-- 登録されたTodoを表示するリスト -->
+    <ul>
+      {% for todo in todos %}
+      <li>
+        <p>
+          <span>{{ todo.memo }}</span>
+          <span>{{ todo.updated_at }}</span>
+        </p>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
